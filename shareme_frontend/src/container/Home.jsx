@@ -13,7 +13,6 @@ import { fetchUser } from '../utils/fetchUser';
 const Home = () => {
   const [toggleSideBar, setToggleSidebar] = useState(false);
   const [user, setUser] = useState(null);
-  const scrollRef = useRef(null);
 
   const userInfo = fetchUser();
 
@@ -21,10 +20,6 @@ const Home = () => {
     const query = userQuery(userInfo?.googleId);
 
     client.fetch(query).then((data) => setUser(data[0]));
-  });
-
-  useEffect(() => {
-    scrollRef.current.scrollTo(0, 0);
   });
 
   return (
@@ -60,7 +55,7 @@ const Home = () => {
         )}
       </div>
 
-      <div className='pb-2 flex-1 h-screen overflow-y-scroll' ref={scrollRef}>
+      <div className='pb-2 flex-1 h-screen overflow-y-scroll'>
         <Routes>
           <Route path='/user-profile/:userId' element={<UserProfile />} />
           <Route path='/*' element={<Pins user={user && user} />} />
