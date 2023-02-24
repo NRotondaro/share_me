@@ -3,20 +3,14 @@ import { AiOutlineLogout } from 'react-icons/ai';
 import { useParams, useNavigate } from 'react-router-dom';
 import { GoogleLogout } from 'react-google-login';
 
-import {
-  userCreatedPinsQuery,
-  userQuery,
-  userSavedPinsQuery,
-} from '../utils/data';
+import { userCreatedPinsQuery, userQuery, userSavedPinsQuery } from '../utils/data';
 import { client } from '../client';
 import MasonryLayout from './MasonryLayout';
 import Spinner from './Spinner';
 
-const randomImage =
-  'https://source.unsplash.com/1600x900/?nature,photography,technology';
+const randomImage = 'https://source.unsplash.com/1600x900/?nature,photography,technology';
 
-const activeBtnStyles =
-  'bg-red-500 text-white font-bold p-2 rounded-full w-20 outline-none';
+const activeBtnStyles = 'bg-red-500 text-white font-bold p-2 rounded-full w-20 outline-none';
 const notActiveBtnStyles =
   'bg-primary mr-4 text-black p-2 font-bold rounded-full w-20 outline-none';
 const UserProfile = () => {
@@ -66,9 +60,7 @@ const UserProfile = () => {
               className='rounded-full w-20 h-20 -mt-10 shadow-xl object-cover'
               alt='user-pic'
             />
-            <h1 className='font-bold text-3xl text-center mt-3'>
-              {user.userName}
-            </h1>
+            <h1 className='font-bold text-3xl text-center mt-3'>{user.userName}</h1>
             <div className='absolute top-0 z-1 right-0 p-2'>
               {userId === user._id && (
                 <GoogleLogout
@@ -78,8 +70,7 @@ const UserProfile = () => {
                       type='button'
                       className='bg-white p-2 rounded-full cursor-pointer outline-none shadow-md'
                       onClick={renderProps.onClick}
-                      disabled={renderProps.disabled}
-                    >
+                      disabled={renderProps.disabled}>
                       <AiOutlineLogout color='red' fontSize={21} />
                     </button>
                   )}
@@ -96,10 +87,7 @@ const UserProfile = () => {
                 setText(e.target.textContent);
                 setActiveBtn('created');
               }}
-              className={`${
-                activeBtn === 'created' ? activeBtnStyles : notActiveBtnStyles
-              }`}
-            >
+              className={`${activeBtn === 'created' ? activeBtnStyles : notActiveBtnStyles}`}>
               Created
             </button>
             <button
@@ -108,10 +96,7 @@ const UserProfile = () => {
                 setText(e.target.textContent);
                 setActiveBtn('saved');
               }}
-              className={`${
-                activeBtn === 'saved' ? activeBtnStyles : notActiveBtnStyles
-              }`}
-            >
+              className={`${activeBtn === 'saved' ? activeBtnStyles : notActiveBtnStyles}`}>
               Saved
             </button>
           </div>

@@ -106,25 +106,15 @@ const CreatePin = ({ user }) => {
                     Use high-quality JPG, SVG, PNG, GIF less than 20MB
                   </p>
                 </div>
-                <input
-                  type='file'
-                  name='upload-image'
-                  onChange={uploadImage}
-                  className='w-0 h-0'
-                />
+                <input type='file' name='upload-image' onChange={uploadImage} className='w-0 h-0' />
               </label>
             ) : (
               <div className='relative h-full'>
-                <img
-                  src={imageAsset?.url}
-                  alt='uploaded-pic'
-                  className='h-full w-full'
-                />
+                <img src={imageAsset?.url} alt='uploaded-pic' className='h-full w-full' />
                 <button
                   type='button'
                   className='absolute bottom-3 right-3 p-3 rounded-full bg-white text-xl cursor-pointer outline-none hover:shadow-md transition-all duration-500 ease-in-out'
-                  onClick={() => setImageAsset(null)}
-                >
+                  onClick={() => setImageAsset(null)}>
                   <MdDelete />
                 </button>
               </div>
@@ -142,11 +132,7 @@ const CreatePin = ({ user }) => {
           />
           {user && (
             <div className='flex gap-2 my-2 items-center bg-white rounded-lg'>
-              <img
-                src={user.image}
-                className='w-10 h-10 rounded-full'
-                alt='user-profile'
-              />
+              <img src={user.image} className='w-10 h-10 rounded-full' alt='user-profile' />
               <p className='font-bold'>{user.userName}</p>
             </div>
           )}
@@ -166,13 +152,10 @@ const CreatePin = ({ user }) => {
           />
           <div className='flex flex-col'>
             <div>
-              <p className='mb-2 font-semibold text-lg sm:text-xl'>
-                Choose Pin Category
-              </p>
+              <p className='mb-2 font-semibold text-lg sm:text-xl'>Choose Pin Category</p>
               <select
                 onChange={(e) => setCategory(e.target.value)}
-                className='outline-none w-4/5 text-base border-b-2 border-gray-200 p-2 rounded-md cursor-pointer'
-              >
+                className='outline-none w-4/5 text-base border-b-2 border-gray-200 p-2 rounded-md cursor-pointer'>
                 <option value='other' className='bg-white'>
                   Select Category
                 </option>
@@ -180,8 +163,7 @@ const CreatePin = ({ user }) => {
                   <option
                     key={category.name}
                     className='text-base border-0 outline-none capitalize bg-white text-black'
-                    value={category.name}
-                  >
+                    value={category.name}>
                     {category.name}
                   </option>
                 ))}
@@ -191,8 +173,7 @@ const CreatePin = ({ user }) => {
               <button
                 type='button'
                 onClick={savePin}
-                className='bg-red-500 text-white font-bold p-2 rounded-full w-28 outline-none'
-              >
+                className='bg-red-500 text-white font-bold p-2 rounded-full w-28 outline-none'>
                 Save Pin
               </button>
             </div>

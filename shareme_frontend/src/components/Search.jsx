@@ -31,9 +31,7 @@ const Search = ({ searchTerm }) => {
       {pins?.length !== 0 && <MasonryLayout pins={pins} />}
       {pins?.length === 0 &&
         searchTerm !== '' &&
-        !loading(
-          <div className='mt-10 text-center text-xl'>No Pins Found</div>
-        )}
+        !loading(<div className='mt-10 text-center text-xl'>No Pins Found</div>)}
     </div>
   );
 };
